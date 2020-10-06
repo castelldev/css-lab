@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Lalezar");
-:root {
+:root, body {
   overflow: hidden;
+  height: 100%;
+}
+
+body {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
 }
 
 main, #rings, #logo, #logo #wrapper {

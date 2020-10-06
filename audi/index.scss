@@ -1,5 +1,10 @@
-:root {
+:root, body {
   overflow: hidden;
+  height:100%;
+}
+body{
+  display:grid;
+  place-items:center;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Lalezar");
