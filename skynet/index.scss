@@ -1,0 +1,61 @@
+@import url("http://fonts.cdnfonts.com/css/terminator-real-nfi-2");
+:root,
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  background: black;
+}
+%pseudo {
+  content: "";
+  position: absolute;
+  background: #000;
+  top: 0;
+  height: 100%;
+}
+
+$space: 0.2;
+
+span {
+  position: relative;
+  font-family: "Terminator Real NFI", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  color: white;
+  &:before {
+    @extend %pseudo;
+    left: percentage(-$space);
+    width: percentage($space + 1);
+    transform-origin: left;
+    animation: left-clip 3s linear both infinite;
+  }
+  &:after {
+    @extend %pseudo;
+    left: 0%;
+    width: percentage($space + 1);
+    transform-origin: right;
+    animation: right-clip 3s linear both infinite;
+  }
+
+  @keyframes left-clip {
+    from {
+      transform: scale3d(0, 1, 1);
+    }
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  @keyframes right-clip {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+    to {
+      transform: scale3d(0, 1, 1);
+    }
+  }
+}
