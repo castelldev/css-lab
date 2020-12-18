@@ -1,4 +1,6 @@
 @import url("http://fonts.cdnfonts.com/css/terminator-real-nfi-2");
+@import url("https://fonts.googleapis.com/css2?family=Andika&display=swap");
+
 :root,
 body {
   margin: 0px;
@@ -29,7 +31,7 @@ body {
 div {
   position: relative;
   background: repeating-linear-gradient(#f00 0 1%, transparent 1% 2%);
-  clip-path: polygon(50% 40%, 0% 90%, 100% 90%);
+  clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
   width: 50vmin;
   height: 50vmin;
   min-width: 250px;
@@ -40,7 +42,7 @@ div {
     background: transparent;
     transform: rotate(45deg);
     border: solid #000 15px;
-    bottom: 35%;
+    bottom: 25%;
     width: 15vmin;
     height: 15vmin;
     min-width: 50px;
@@ -51,8 +53,27 @@ div {
     background: #000;
     bottom: 0;
     width: 15px;
-    height: 30%;
+    height: 20%;
   }
+}
+
+%heading {
+  margin: 0px;
+  color: #fff;
+}
+
+h1 {
+  @extend %heading;
+  min-width: 250px;
+  font-size: 7.3vh;
+  font-family: "Terminator Real NFI", sans-serif;
+}
+
+h2 {
+  @extend %heading;
+  font-weight: bold;
+  font-size: 1.9vh;
+  font-family: "Andika", sans-serif;
 }
 
 %clip {
@@ -67,8 +88,8 @@ $space: 0.2;
 span {
   position: relative;
   font-family: "Terminator Real NFI", sans-serif;
-  font-size: 1rem;
-  outline: none;
+  font-size: 1.45vh;
+  margin: 20px;
   color: #fff;
   &:before {
     @extend %clip;
@@ -100,5 +121,17 @@ span {
     to {
       transform: scale3d(0, 1, 1);
     }
+  }
+}
+
+@media only screen and (max-height: 490px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+  h2 {
+    font-size: 0.575rem;
+  }
+  span {
+    font-size: 0.45rem;
   }
 }
