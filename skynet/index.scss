@@ -6,14 +6,57 @@ body {
 }
 
 body {
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #000;
   overflow: hidden;
-  background: black;
 }
+
 %pseudo {
   content: "";
   position: absolute;
+}
+
+%split {
+  @extend %pseudo;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+div {
+  position: relative;
+  background: repeating-linear-gradient(#f00 0 1%, transparent 1% 2%);
+  clip-path: polygon(50% 40%, 0% 90%, 100% 90%);
+  width: 50vmin;
+  height: 50vmin;
+  min-width: 250px;
+  min-height: 250px;
+
+  &:before {
+    @extend %split;
+    background: transparent;
+    transform: rotate(45deg);
+    border: solid #000 15px;
+    bottom: 35%;
+    width: 15vmin;
+    height: 15vmin;
+    min-width: 50px;
+    min-height: 50px;
+  }
+  &::after {
+    @extend %split;
+    background: #000;
+    bottom: 0;
+    width: 15px;
+    height: 30%;
+  }
+}
+
+%clip {
+  @extend %pseudo;
   background: #000;
   top: 0;
   height: 100%;
@@ -26,16 +69,16 @@ span {
   font-family: "Terminator Real NFI", sans-serif;
   font-size: 1rem;
   outline: none;
-  color: white;
+  color: #fff;
   &:before {
-    @extend %pseudo;
+    @extend %clip;
     left: percentage(-$space);
     width: percentage($space + 1);
     transform-origin: left;
     animation: left-clip 3s linear both infinite;
   }
   &:after {
-    @extend %pseudo;
+    @extend %clip;
     left: 0%;
     width: percentage($space + 1);
     transform-origin: right;
