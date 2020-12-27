@@ -28,6 +28,9 @@ body {
   margin: auto;
 }
 
+$split-width: 22;
+$split-center: 21;
+
 div {
   position: relative;
   background: repeating-linear-gradient(#f00 0 1%, transparent 1% 2%);
@@ -41,8 +44,9 @@ div {
     @extend %split;
     background: transparent;
     transform: rotate(45deg);
-    border: solid #000 15px;
-    bottom: 25%;
+    border: solid #000 #{$split-width}px;
+    transition: border 100ms ease;
+    bottom: #{$split-center * 1%};
     width: 15vmin;
     height: 15vmin;
     min-width: 50px;
@@ -52,14 +56,16 @@ div {
     @extend %split;
     background: #000;
     bottom: 0;
-    width: 15px;
-    height: 20%;
+    width: #{$split-width}px;
+    height: #{$split-center - 5%};
+    transition: width 100ms ease;
   }
 }
 
 %heading {
   margin: 0px;
   color: #fff;
+  text-align: center;
 }
 
 h1 {
@@ -125,6 +131,15 @@ span {
 }
 
 @media only screen and (max-height: 490px) {
+  $split-width: 18;
+  div {
+    &:before {
+      border: solid #000 #{$split-width}px;
+    }
+    &::after {
+      width: #{$split-width}px;
+    }
+  }
   h1 {
     font-size: 2.25rem;
   }
@@ -133,5 +148,29 @@ span {
   }
   span {
     font-size: 0.45rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 2.25rem !important;
+  }
+  h2 {
+    font-size: 0.575rem !important;
+  }
+  span {
+    font-size: 0.45rem !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  h1 {
+    font-size: 7vw;
+  }
+  h2 {
+    font-size: 2vw;
+  }
+  span {
+    font-size: 1.5vw;
   }
 }

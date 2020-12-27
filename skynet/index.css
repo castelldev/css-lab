@@ -50,8 +50,10 @@ div:before {
   background: transparent;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  border: solid #000 15px;
-  bottom: 25%;
+  border: solid #000 22px;
+  -webkit-transition: border 100ms ease;
+  transition: border 100ms ease;
+  bottom: 21%;
   width: 15vmin;
   height: 15vmin;
   min-width: 50px;
@@ -61,13 +63,16 @@ div:before {
 div::after {
   background: #000;
   bottom: 0;
-  width: 15px;
-  height: 20%;
+  width: 22px;
+  height: 16%;
+  -webkit-transition: width 100ms ease;
+  transition: width 100ms ease;
 }
 
 h1, h2 {
   margin: 0px;
   color: #fff;
+  text-align: center;
 }
 
 h1 {
@@ -159,6 +164,12 @@ span:after {
 }
 
 @media only screen and (max-height: 490px) {
+  div:before {
+    border: solid #000 18px;
+  }
+  div::after {
+    width: 18px;
+  }
   h1 {
     font-size: 2.25rem;
   }
@@ -167,6 +178,30 @@ span:after {
   }
   span {
     font-size: 0.45rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 2.25rem !important;
+  }
+  h2 {
+    font-size: 0.575rem !important;
+  }
+  span {
+    font-size: 0.45rem !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  h1 {
+    font-size: 7vw;
+  }
+  h2 {
+    font-size: 2vw;
+  }
+  span {
+    font-size: 1.5vw;
   }
 }
 /*# sourceMappingURL=index.css.map */
