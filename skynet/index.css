@@ -21,6 +21,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background: #000;
+  margin-top: -95px;
   overflow: hidden;
 }
 
@@ -78,26 +79,27 @@ h1, h2 {
 h1 {
   min-width: 250px;
   font-size: 7.3vh;
+  margin-top: 5px;
   font-family: "Terminator Real NFI", sans-serif;
 }
 
 h2 {
   font-weight: bold;
-  font-size: 1.9vh;
+  font-size: 2.15vh;
   font-family: "Andika", sans-serif;
 }
 
 span:before, span:after {
   background: #000;
-  top: 0;
-  height: 100%;
+  top: -3px;
+  height: calc(100% + 3px);
 }
 
 span {
   position: relative;
   font-family: "Terminator Real NFI", sans-serif;
   font-size: 1.45vh;
-  margin: 20px;
+  margin: 10px 0px;
   color: #fff;
 }
 
@@ -174,7 +176,7 @@ span:after {
     font-size: 2.25rem;
   }
   h2 {
-    font-size: 0.575rem;
+    font-size: 0.65rem;
   }
   span {
     font-size: 0.45rem;
