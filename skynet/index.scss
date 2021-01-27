@@ -1,5 +1,9 @@
-@import url("http://fonts.cdnfonts.com/css/terminator-real-nfi-2");
-@import url("https://fonts.googleapis.com/css2?family=Andika&display=swap");
+@import url("https://fonts.cdnfonts.com/css/terminator-real-nfi-2");
+@import url("https://fonts.googleapis.com/css2?family=Andika&family=Prompt&display=swap");
+
+$primary-color: #f00;
+$secondary-color: #fff;
+$background-color: #000;
 
 :root,
 body {
@@ -12,7 +16,7 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  background: #000;
+  background: $background-color;
   margin-top: -95px;
   overflow: hidden;
 }
@@ -34,7 +38,7 @@ $split-center: 21;
 
 div {
   position: relative;
-  background: repeating-linear-gradient(#f00 0 1%, transparent 1% 2%);
+  background: repeating-linear-gradient($primary-color 0 1%, transparent 1% 2%);
   clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
   width: 50vmin;
   height: 50vmin;
@@ -45,7 +49,7 @@ div {
     @extend %split;
     background: transparent;
     transform: rotate(45deg);
-    border: solid #000 #{$split-width}px;
+    border: solid $background-color #{$split-width}px;
     transition: border 100ms ease;
     bottom: #{$split-center * 1%};
     width: 15vmin;
@@ -55,7 +59,7 @@ div {
   }
   &::after {
     @extend %split;
-    background: #000;
+    background: $background-color;
     bottom: 0;
     width: #{$split-width}px;
     height: #{$split-center - 5%};
@@ -65,7 +69,7 @@ div {
 
 %heading {
   margin: 0px;
-  color: #fff;
+  color: $secondary-color;
   text-align: center;
 }
 
@@ -86,7 +90,7 @@ h2 {
 
 %clip {
   @extend %pseudo;
-  background: #000;
+  background: $background-color;
   top: -3px;
   height: calc(100% + 3px);
 }
@@ -98,7 +102,7 @@ span {
   font-family: "Terminator Real NFI", sans-serif;
   font-size: 1.45vh;
   margin: 10px 0px;
-  color: #fff;
+  color: $secondary-color;
   &:before {
     @extend %clip;
     left: percentage(-$space);
@@ -132,11 +136,41 @@ span {
   }
 }
 
+%dot {
+  @extend %pseudo;
+  background: $primary-color;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  height: 5px;
+  margin: auto;
+  border-radius: 50%;
+}
+
+p {
+  display: block;
+  position: relative;
+  color: $primary-color;
+  font-family: "Prompt", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2vh;
+  margin: 0px;
+  &::before {
+    @extend %dot;
+    left: -1ch;
+  }
+  &::after {
+    @extend %dot;
+    right: -1ch;
+  }
+}
+
 @media only screen and (max-height: 490px) {
   $split-width: 18;
   div {
     &:before {
-      border: solid #000 #{$split-width}px;
+      border: solid $background-color #{$split-width}px;
     }
     &::after {
       width: #{$split-width}px;
@@ -151,6 +185,9 @@ span {
   span {
     font-size: 0.45rem;
   }
+  p {
+    font-size: 0.6rem;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -163,6 +200,9 @@ span {
   span {
     font-size: 0.45rem !important;
   }
+  p {
+    font-size: 0.575rem !important;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -174,5 +214,8 @@ span {
   }
   span {
     font-size: 1.5vw;
+  }
+  p {
+    font-size: 1.85vw;
   }
 }
